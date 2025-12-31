@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy New Year Sweetu ✨</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+<style>
+:root{
+--bg:#040406;
+--accent:#ff4d8d;
+--glow:rgba(255,77,141,.45);
+--text:#fff;
+--dim:#b5b5b5;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+background:radial-gradient(circle at top,#0b0b14,#000);
+color:var(--text);
+font-family:Inter,sans-serif;
+overflow-x:hidden;
+}
+
+section{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:40px 20px;
+}
+
+h1{
+font-family:'Playfair Display',serif;
+font-size:clamp(2.6rem,8vw,5rem);
+line-height:1.1;
+}
+
+p{
+color:var(--dim);
+font-size:1.1rem;
+margin-top:15px;
+line-height:1.8;
+}
+
+.glass{
+background:rgba(255,255,255,.04);
+border:1px solid rgba(255,255,255,.1);
+border-radius:24px;
+padding:35px;
+backdrop-filter:blur(12px);
+max-width:700px;
+}
+
+button{
+margin-top:30px;
+padding:15px 42px;
+border:none;
+border-radius:50px;
+background:var(--accent);
+color:#fff;
+font-size:1rem;
+font-weight:600;
+box-shadow:0 10px 35px var(--glow);
+}
+
+.star{
+position:fixed;
+width:2px;
+height:2px;
+background:white;
+opacity:.6;
+animation:twinkle 3s infinite alternate;
+}
+
+@keyframes twinkle{
+from{opacity:.2}
+to{opacity:1}
+}
+
+.orb{
+position:fixed;
+width:350px;
+height:350px;
+border-radius:50%;
+background:radial-gradient(circle,var(--glow),transparent 70%);
+filter:blur(90px);
+z-index:-1;
+}
+</style>
+</head>
+
+<body>
+
+<!-- STARS -->
+<script>
+for(let i=0;i<70;i++){
+let s=document.createElement("div");
+s.className="star";
+s.style.top=Math.random()*100+"vh";
+s.style.left=Math.random()*100+"vw";
+s.style.animationDelay=Math.random()*3+"s";
+document.body.appendChild(s);
+}
+</script>
+
+<div class="orb" style="top:-120px;left:-120px"></div>
+<div class="orb" style="bottom:-120px;right:-120px"></div>
+
+<!-- BACKGROUND MUSIC -->
+<audio id="music" loop>
+<source src="https://cdn.pixabay.com/audio/2023/03/27/audio_6e4a2e8b36.mp3" type="audio/mpeg">
+</audio>
+
+<!-- HERO -->
+<section onclick="playMusic()">
+<div>
+<p style="letter-spacing:3px;color:var(--accent)">WELCOME 2025 ✨</p>
+<h1>Happy New Year<br>Sweetu 💖</h1>
+<p>Tap anywhere to begin…</p>
+</div>
+</section>
+
+<!-- MESSAGE -->
+<section>
+<div class="glass">
+<p>
+Sweetu,<br><br>
+Naya saal shuru ho raha hai…  
+aur main chahta tha ki  
+<strong>2025 ka pehla smile tumhara ho</strong> 😊<br><br>
+
+Tumhari ek chhoti si muskurahat bhi  
+din ko halka aur khaas bana deti hai.<br>
+Bas ek hi dua hai —  
+is saal tum <strong>khud se bhi zyada khush raho</strong> 🌙✨
+</p>
+</div>
+</section>
+
+<!-- WISH -->
+<section>
+<div>
+<h1>Ek Wish Karo 🌟</h1>
+<p>Aankh band karo aur neeche tap karo</p>
+
+<button onclick="celebrate()">Tap Here ✨</button>
+
+<div id="final" style="display:none;margin-top:30px">
+<h1 style="font-size:2.4rem">May all your dreams find you 💖</h1>
+<p>
+— Koi hai jo tumhari khushi ke liye<br>
+dil se wish karta hai 🙂
+</p>
+</div>
+</div>
+</section>
+
+<script>
+function playMusic(){
+document.getElementById("music").play();
+}
+
+function celebrate(){
+confetti({
+particleCount:220,
+spread:120,
+origin:{y:.6},
+colors:['#ff4d8d','#ffffff','#ffc1d9']
+});
+document.getElementById("final").style.display="block";
+}
+</script>
+
+</body>
+</html>
